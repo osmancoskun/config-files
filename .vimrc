@@ -3,6 +3,12 @@
 "*****************************************************************************
 "" Vim-Plug core
 "*****************************************************************************
+" Disable Arrow Keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 if has('win32')&&!has('win64')
   let curl_exists=expand('C:\Windows\Sysnative\curl.exe')
