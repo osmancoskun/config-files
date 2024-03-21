@@ -12,14 +12,6 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 set ttyfast
 
-" Tabs
-set tabstop=4
-set softtabstop=0
-set shiftwidth=4
-set expandtab
-set showtabline=2
-
-" Hidden buffers
 set hidden
 
 " Searching
@@ -29,8 +21,6 @@ set ignorecase
 set smartcase
 
 set fileformats=unix,dos,mac
-
-" Visual settings
 
 syntax on
 set ruler
@@ -62,12 +52,14 @@ call plug#begin(expand('~/.vim/plugged'))
 
 " Plugins
 Plug 'scrooloose/nerdtree' " File Explorer
-Plug 'Raimondi/delimitMate' " Auto Closer for brackets etc.
 Plug 'junegunn/fzf', { 'dir' : '~/.fzf' , 'do' : './install -all' }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'alvan/vim-closetag'
+Plug 'mattn/emmet-vim'
 call plug#end()
+
 set termguicolors
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
@@ -223,15 +215,6 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Remap <C-f> and <C-b> to scroll float windows/popups
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
 
 " Use CTRL-S for selections ranges
 " Requires 'textDocument/selectionRange' support of language server
