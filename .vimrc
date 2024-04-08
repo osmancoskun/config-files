@@ -57,9 +57,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'alvan/vim-closetag'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'mattn/emmet-vim'
 call plug#end()
-
+packloadall
 set termguicolors
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
@@ -81,6 +82,17 @@ nnoremap <C-b> :NERDTreeToggle<CR>
 "" Tabs
 nnoremap ]t :tabn <cr>
 nnoremap [t :tabp <cr>
+nnoremap <C-o> :Prettier<CR>
+function! PrettierFormat()
+    let l:filetype = &filetype
+    if l:filetype == 'css' || l:filetype == 'json' || l:filetype == 'javascript' || l:filetype == 'html' || l:filetype == 'markdown'
+        execute 'Prettier'
+    else
+        echo "Filetype not supported for Prettier formatting"
+    endif
+endfunction
+
+nnoremap <C-s> :call PrettierFormat()<CR>
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors = {
