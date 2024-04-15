@@ -52,6 +52,8 @@ call plug#begin(expand('~/.vim/plugged'))
 
 " Plugins
 Plug 'scrooloose/nerdtree' " File Explorer
+Plug 'leafOfTree/vim-svelte-plugin'
+Plug 'leafOfTree/vim-svelte-theme'
 Plug 'junegunn/fzf', { 'dir' : '~/.fzf' , 'do' : './install -all' }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
